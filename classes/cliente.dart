@@ -35,4 +35,12 @@ class Cliente extends Pessoa {
       return 0;
     });
   }
+
+  void verProdutosComprados() {
+    ordenarProdutosComprados();
+    print("Produtos comprados por $nome:");
+    produtosComprados.forEach((element) {
+      print("${element.nome} - ${element.valor}");
+    });
+  }
 }

@@ -27,4 +27,12 @@ class Cliente extends Pessoa {
           '$nome não possui dinheiro suficiente para comprar o produto ${produto.nome}');
     }
   }
+
+  void ordenarProdutosComprados() {
+    produtosComprados.sort((a, b) {
+      int comp = a.nome.compareTo(b.nome);
+      if (comp != 0) return comp;
+      return 0;
+    });
+  }
 }

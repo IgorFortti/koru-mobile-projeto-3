@@ -77,7 +77,7 @@ main() {
   /* Testes da classe Pessoa */
 
   var pessoa =
-      Pessoa('Maria', '12345678900', DateTime(1994, 10, 19), Genero.Feminino);
+      Pessoa('Maria', '12345678900', DateTime(1994, 10, 19), Genero.Feminino, Humor.alegre);
 
   // Teste o método falar algumas vezes...
   // Exemplo: pessoaA.falar('Oi, tudo bem?');
@@ -95,7 +95,7 @@ main() {
   /* ------------------------------------------ */
 
   var cliente1 = Cliente(
-      "Gon Freecs", "12345678950", DateTime(1999, 10, 19), Genero.Outros);
+      "Gon Freecs", "12345678950", DateTime(1999, 10, 19), Genero.Outros , Humor.cansada);
 
   cliente1.maioridade();
   cliente1.adicionarDinheiro(100);
@@ -103,7 +103,7 @@ main() {
   cliente1.falar("Primeiro vem pedra");
 
   var cliente2 = Cliente(
-      "Killua Zoldyck", "44346795175", DateTime(2007, 1, 19), Genero.Feminino,
+      "Killua Zoldyck", "44346795175", DateTime(2007, 1, 19), Genero.Feminino, Humor.triste,
       dinheiro: 1000000.99);
 
   cliente2.maioridade();

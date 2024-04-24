@@ -1,12 +1,12 @@
 import 'pessoa.dart';
 import 'produto.dart';
 import 'revendedor.dart';
-
+import 'brinde.dart';
 class Cliente extends Pessoa {
   late double? dinheiro;
   List<Produto> produtosComprados = [];
-
-  Cliente(super.nome, super.cpf, super.dataDeNascimento, super.genero,
+  
+  Cliente(super.nome, super.cpf, super.dataDeNascimento, super.genero, super.humor,
       {this.dinheiro});
 
   void adicionarDinheiro(double valor) {
@@ -67,4 +67,55 @@ class Cliente extends Pessoa {
       print('${produto.nome} - ${produto.valor.toStringAsFixed(2)}');   
     }
   }
+
+
+
+  List<Brinde> brindes = [];
+  int pontos = 0;
+
+  void comprarProdutoBrindes(Produto produto) {
+     try {
+      produto.realizarVenda();
+      dinheiro = dinheiro! - produto.valor;
+      produtosComprados.add(produto);
+    } catch (e) {
+      print('$nome não possui dinheiro suficiente para comprar o produto ${produto.nome}');
+    }
+
+    pontos++;
+  }
+
+  void consultarTotalPontos() {
+    print("Você possui $pontos pontos.");
+  }
+
+  void trocarPontosPorBrinde(Brinde brinde) {
+    if (pontos >= brinde.pontosNecessarios) {
+      try {
+        brinde.realizarTroca();
+        pontos -= brinde.pontosNecessarios;
+        brindes.add(brinde);
+      } catch (e) {
+        print(e);
+      }
+    } else {
+      print("Você não possui pontos suficientes para trocar pelo brinde ${brinde.nome}.");
+    }
+  }
+
+  void ordenarBrindes() {
+    brindes.sort((a, b) => a.nome.compareTo(b.nome));
+  }
+
+  void verBrindes() {
+    ordenarBrindes();
+    print("Brindes recebidos:");
+    for (var brinde in brindes) {
+      print(brinde.nome);
+    }
+  }
 }
+
+
+
+

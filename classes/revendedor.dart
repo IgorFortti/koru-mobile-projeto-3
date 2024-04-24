@@ -7,7 +7,7 @@ class Revendedor extends Pessoa {
   List<Produto> produtosVendidos = [];
   double porcentagemLucro;
 
-  Revendedor(super.nome, super.cpf, super.dataDeNascimento, super.genero,
+  Revendedor(super.nome, super.cpf, super.dataDeNascimento, super.genero, super.humor,
       this.matricula, this.produtosVendidos, this.porcentagemLucro);
 
   @override
